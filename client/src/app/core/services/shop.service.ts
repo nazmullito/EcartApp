@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { Pagination } from '../../shared/models/pagination';
 import { Product } from '../../shared/models/product';
 import { ShopParams } from '../../shared/models/shopParams';
+import { environment } from '../../../environments/environment';
 // import { Pagination } from '../../shared/models/pagination';
 // import { Product } from '../../shared/models/product';
 // import { ShopParams } from '../../shared/models/shopParams';
@@ -10,7 +11,8 @@ import { ShopParams } from '../../shared/models/shopParams';
   providedIn: 'root'
 })
 export class ShopService {
-  baseUrl = 'https://localhost:7195/api/'
+  // baseUrl = 'https://localhost:7195/api/'
+   baseUrl = environment.apiUrl;
   private http = inject(HttpClient);
   types: string[] = [];
   brands: string[] = [];
@@ -19,7 +21,7 @@ export class ShopService {
     if (shopParams.brands.length > 0) {
       params = params.append('brands', shopParams.brands.join(','));
     }  
-    if (shopParams.types.length > 0) {
+    if (shopParams.types.length > 0) { 
       params = params.append('types', shopParams.types.join(','));
     }
 

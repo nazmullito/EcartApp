@@ -15,6 +15,7 @@ namespace API.Controllers
             if (cart == null) return BadRequest("Problem with your cart");
             return Ok(cart);
         }
+
         [HttpGet("delivery-methods")]
         public async Task<ActionResult<IReadOnlyList<DeliveryMethod>>> GetDeliveryMethods()
         {
