@@ -48,12 +48,12 @@ app.UseMiddleware<ExceptionMiddleware>();
 app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200", "https://localhost:4200"));
 
 app.UseDefaultFiles();
-//app.UseStaticFiles();
-app.UseStaticFiles(new StaticFileOptions
-{
-    ServeUnknownFileTypes = true, // Allow serving files without recognized MIME types
-    DefaultContentType = "application/javascript"
-});
+app.UseStaticFiles();
+//app.UseStaticFiles(new StaticFileOptions
+//{
+//    ServeUnknownFileTypes = true, // Allow serving files without recognized MIME types
+//    DefaultContentType = "application/javascript"
+//});
 
 app.MapControllers();
 app.MapFallbackToController("Index", "Fallback");
